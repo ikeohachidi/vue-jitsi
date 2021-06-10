@@ -1,24 +1,32 @@
-# vue-jitsi-meet
+## Getting Started
 
-## Project setup
+1. Install the plugin
 ```
-npm install
+npm install --save <not on npm yet>
 ```
+2. Add Plugin to app
+```
+import VueJitsi from 'vue-jitsi';
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+Vue.use(VueJitsi);
 ```
 
-### Lints and fixes files
+#### Usage
 ```
-npm run lint
+<jitsi
+	:roomID="your-room-id"
+	:domain="ikeoha.com"
+	:config="{}"
+	:interfaceConfig="{}"
+/>
 ```
+Please find more `config` options at [enter link description here](https://github.com/jitsi/jitsi-meet/blob/master/config.js) and more `interfaceConfigOptions` at [enter link description here](https://github.com/jitsi/jitsi-meet/blob/master/interface_config.js)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+| Prop|value|default
+|--|--|--|
+|roomID|string| ''
+|domain|string| meet.jit.si
+|height|string OR number| 100%
+|width|string OR number| 100%
+|config|{}|{}
+|interfaceConfig|{}|{}
