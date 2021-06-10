@@ -25,7 +25,7 @@ export default class VueJitsi extends Vue {
     @Prop({ default: 'meet.jit.si' }) domain!: string;
     @Prop({ default: '100%' }) height!: string | number;
     @Prop({ default: '100%' }) width!: string | number;
-    @Prop({ default: () => { return {} }}) options!: {[option: string]: string | boolean};
+    @Prop({ default: () => { return {} }}) config!: {[option: string]: string | boolean};
     @Prop({ default: () => { return {} }}) interfaceConfig!: {[option: string]: string | boolean};
     @Prop({ default: () => { return [] }}) commands!: CommandCallback[];
     @Prop({ default: () => { return [] }}) events!: Event[];
@@ -39,7 +39,9 @@ export default class VueJitsi extends Vue {
             parentNode: parentRef,
             width: this.width,
             height: this.height,
-            ...this.options,
+            configOverwrite: {
+                ...this.config
+            },
             interfaceConfigOverwrite: {
                 ...this.interfaceConfig
             },
