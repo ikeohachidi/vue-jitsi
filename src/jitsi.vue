@@ -33,7 +33,7 @@ export default class VueJitsi extends Vue {
 
     private jitsi = new window.JitsiMeetExternalAPI(this.domain, {});
 
-    private initJitsiProcess() {
+    private initJitsiProcess(): void {
         const parentRef = this.$refs['jitsi-meet-parent'] as HTMLElement;
         this.jitsi = new window.JitsiMeetExternalAPI(this.domain, {
             roomName: this.roomID,
@@ -68,7 +68,7 @@ export default class VueJitsi extends Vue {
         return jitsiScript;
     }
 
-    private mountJitsi() {
+    private mountJitsi(): void {
         const bodyElement = document.querySelector('body');
 
         if (bodyElement && !document.body.contains(this.jitsiScript)) {
@@ -78,22 +78,22 @@ export default class VueJitsi extends Vue {
         }
     }
 
-    private killJitsiProcess() {
+    private killJitsiProcess(): void {
         this.jitsi.addEventListener('videoConferenceLeft', () => {
             this.jitsi.dispose();
             this.close();
         })
     }
 
-    private close() {
+    private close(): void {
         this.$emit('close')
     }
 
-    mounted() {
+    mounted(): void {
         this.mountJitsi();
     }
 
-    destroy() {
+    destroy(): void {
         this.jitsi.dispose()
     }
 }
