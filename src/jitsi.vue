@@ -49,6 +49,14 @@ export default class VueJitsi extends Vue {
             },
         })
 
+        this.commands.forEach(command => {
+            this.jitsi.executeCommand(command.name, command.action);
+        })
+
+        this.events.forEach(event => {
+            this.jitsi.addEventListener(event.name, event.listener)
+        })
+
         this.killJitsiProcess();
     }
 
