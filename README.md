@@ -16,6 +16,9 @@ Vue.use(VueJitsi);
 <jitsi
 	:roomID="your-room-id"
 	:domain="ikeoha.com"
+	:userInfo="{
+		email: ''
+	}"
 	:config="{}"
 	:interfaceConfig="{}"
 />
@@ -26,6 +29,7 @@ Please find more `config` options at [enter link description here](https://githu
 |--|--|--|
 |roomID|string| ''
 |domain|string| meet.jit.si
+|userInfo|object|{}
 |height|string OR number| 100%
 |width|string OR number| 100%
 |config|{}|{}
